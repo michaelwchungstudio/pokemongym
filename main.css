@@ -68,7 +68,8 @@
 }
 
 body {
-  font-family: "PokemonSolid";
+  font-family: "Gotham";
+  font-weight: 300;
 }
 
 .bgwrapper {
@@ -78,38 +79,20 @@ body {
   justify-content: center;
   align-items: center;
   z-index: -1;
-  /* background: linear-gradient(to bottom, #EE1515 50%, #F0F0F0 50%); */
   position: absolute;
-  background-image: url("https://img00.deviantart.net/d852/i/2015/239/a/3/pokemon_xy_vs_background_by_lil_riku-d97f4y5.png")
+  background-image: url("https://orig01.deviantart.net/ada4/f/2012/030/7/f/battle_bases_01bg_hd_by_xalien95-d4o49yb.png")
 }
 
-/* .bgline {
-  height: 4.5vh;
-  width: 100vw;
-  background-color: black;
+.gymnamesec {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.circle {
-  border-radius: 50%;
-  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-#circle1 {
-  height: 27.8vw;
-  width: 27.8vw;
-  background-color: black;
+#gymtitle {
+  font-family: "PokemonSolid";
+  color: pink;
 }
-
-#circle2 {
-  height: 23vw;
-  width: 23vw;
-  background-color: white;
-} */
 
 .wrapper {
   height: 100vh;

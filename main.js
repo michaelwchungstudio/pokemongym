@@ -39,6 +39,7 @@ class Pokemon{
 	var that = this
 		$.ajax({url:"https://fizal.me/pokeapi/api/"+ajaxNumber+".json",
 			success: function (response) {
+        console.log(response);
 				that.getName(response)
 			}
 		})
@@ -137,3 +138,5 @@ iPoke3.addEventListener('click', function() {
 window.addEventListener('load', function() {
   displayPokemon(dragonite);
 })
+
+console.log(gyrados);

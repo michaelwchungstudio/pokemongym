@@ -1,55 +1,3 @@
-// IAN POKEMON INFORMATION
-var pokeSprite3 = document.getElementById('pokesprite3');
-var pokeIDNum3 = document.getElementById('pokeidnum3');
-var pokeName3 = document.getElementById('pokename3');
-var pokeHP3 = document.getElementById('pokehp3');
-var pokeAttack3 = document.getElementById('pokeattack3');
-var pokeDefense3 = document.getElementById('pokedefense3');
-var pokeAbilities3 = document.getElementById('pokeabilities3');
-
-var iPoke1 = document.getElementById('ipoke1');
-var iPoke2 = document.getElementById('ipoke2');
-var iPoke3 = document.getElementById('ipoke3');
-
-// IAN EVENT LISTENERS
-iPoke1.addEventListener('click', function() {
-  createPokemon3(130);
-})
-
-iPoke2.addEventListener('click', function() {
-  createPokemon3(131);
-})
-
-iPoke3.addEventListener('click', function() {
-  createPokemon3(149);
-})
-
-// TANJIM POKEMON INFORMATION
-var pokeSprite2 = document.getElementById('pokesprite2');
-var pokeIDNum2 = document.getElementById('pokeidnum2');
-var pokeName2 = document.getElementById('pokename2');
-var pokeHP2 = document.getElementById('pokehp2');
-var pokeAttack2 = document.getElementById('pokeattack2');
-var pokeDefense2 = document.getElementById('pokedefense2');
-var pokeAbilities2 = document.getElementById('pokeabilities2');
-
-var tPoke1 = document.getElementById('tpoke1');
-var tPoke2 = document.getElementById('tpoke2');
-var tPoke3 = document.getElementById('tpoke3');
-
-// TANJIM EVENT LISTENERS
-tPoke1.addEventListener('click', function() {
-  createPokemon2(152);
-})
-
-tPoke2.addEventListener('click', function() {
-  createPokemon2(172);
-})
-
-tPoke3.addEventListener('click', function() {
-  createPokemon2(182);
-})
-
 // MICHAEL POKEMON INFORMATION
 var pokeSprite1 = document.getElementById('pokesprite1');
 var pokeIDNum1 = document.getElementById('pokeidnum1');
@@ -63,105 +11,124 @@ var mPoke1 = document.getElementById('mpoke1');
 var mPoke2 = document.getElementById('mpoke2');
 var mPoke3 = document.getElementById('mpoke3');
 
+var tPoke1 = document.getElementById('tpoke1');
+var tPoke2 = document.getElementById('tpoke2');
+var tPoke3 = document.getElementById('tpoke3');
+
+var iPoke1 = document.getElementById('ipoke1');
+var iPoke2 = document.getElementById('ipoke2');
+var iPoke3 = document.getElementById('ipoke3');
+
+// POKEMON OBJECT CLASS
+class Pokemon{
+    constructor(ajax){
+        this.name;
+        this.id;
+        this.hp;
+        this.attack;
+        this.defense;
+        this.image;
+        this.height
+        this.weight;
+        this.type;
+        this.abilities = []
+        this.newCard(ajax)
+     }
+
+	newCard(ajaxNumber){
+	var that = this
+		$.ajax({url:"https://fizal.me/pokeapi/api/"+ajaxNumber+".json",
+			success: function (response) {
+				that.getName(response)
+			}
+		})
+
+	}
+
+	getName(x){
+		this.name = x.species.name
+    this.id = x.id
+		this.hp = x.stats[5].base_stat
+		this.attack = x.stats[4].base_stat
+		this.defense = x.stats[3].base_stat
+		this.image = x.sprites.front_default
+		this.height= x.height
+		this.weight= x.weight
+		this.type = x.types[0].type.name
+
+    var abil = "";
+
+    for(let i = 0; i < x.abilities.length; i++) {
+      if(i == x.abilities.length-1) {
+        abil += (x.abilities[i].ability.name.charAt(0).toUpperCase() + x.abilities[i].ability.name.slice(1) + ".")
+      }
+      else {
+        abil += (x.abilities[i].ability.name.charAt(0).toUpperCase() + x.abilities[i].ability.name.slice(1) + ", ");
+      }
+    }
+
+    this.abilities = abil
+	}
+}
+
+var gyrados = new Pokemon(130)
+var lapras = new Pokemon(131)
+var dragonite = new Pokemon(149)
+
+var pichu = new Pokemon(172);
+var chikorita = new Pokemon(152);
+var bellossom = new Pokemon(182);
+
+var vaporeon = new Pokemon(134);
+var jolteon = new Pokemon(135);
+var flareon = new Pokemon(136);
+
+// CREATE POKEMON FUNCTION FOR EACH TRAINER => CHANGES THAT TRAINER'S SECTION OF THE HTML PAGE
+function displayPokemon(pokeObj) {
+    pokeSprite1.style.backgroundImage = "url(" + pokeObj.image + ")";
+    pokeIDNum1.innerText = "ID: " + pokeObj.id;
+    pokeName1.innerText = "Name: " + pokeObj.name.charAt(0).toUpperCase() + pokeObj.name.slice(1);
+    pokeHP1.innerText = "HP: " + pokeObj.hp
+    pokeAttack1.innerText = "Attack: " + pokeObj.attack
+    pokeDefense1.innerText = "Defense: " + pokeObj.defense
+    pokeAbilities1.innerText = "Abilities: " + pokeObj.abilities;
+}
+
 // MICHAEL EVENT LISTENERS
 mPoke1.addEventListener('click', function() {
-  createPokemon1(134);
+  displayPokemon(vaporeon);
 })
 
 mPoke2.addEventListener('click', function() {
-  createPokemon1(135);
+  displayPokemon(jolteon);
 })
 
 mPoke3.addEventListener('click', function() {
-  createPokemon1(136);
+  displayPokemon(flareon);
 })
 
-function createPokemon1(idnum) {
-  $.ajax({url:"https://fizal.me/pokeapi/api/" + idnum + ".json",
-    success: function(response){
-      pokeSprite1.style.backgroundImage = "url(" + response.sprites.front_default; + ")";
-      pokeIDNum1.innerText = "ID: " + response.id;
-      pokeName1.innerText = "Name: " + response.name.charAt(0).toUpperCase() + response.name.slice(1);
-      pokeHP1.innerText = "HP: " + response.stats[5].base_stat;
-      pokeAttack1.innerText = "Attack: " + response.stats[4].base_stat;
-      pokeDefense1.innerText = "Defense: " + response.stats[3].base_stat;
+// TANJIM EVENT LISTENERS
+tPoke1.addEventListener('click', function() {
+  displayPokemon(pichu);
+})
 
-      var abil = "";
+tPoke2.addEventListener('click', function() {
+  displayPokemon(chikorita);
+})
 
-      for(let i = 0; i < response.abilities.length; i++) {
-        if(i == response.abilities.length-1) {
-          abil += (response.abilities[i].ability.name.charAt(0).toUpperCase() + response.abilities[i].ability.name.slice(1) + ".")
-        }
-        else {
-          abil += (response.abilities[i].ability.name.charAt(0).toUpperCase() + response.abilities[i].ability.name.slice(1) + ", ");
-        }
-      }
+tPoke3.addEventListener('click', function() {
+  displayPokemon(bellossom);
+})
 
-      pokeAbilities1.innerText = "Abilities: " + abil;
-    }
-  })
-}
+// IAN EVENT LISTENERS
+iPoke1.addEventListener('click', function() {
+  displayPokemon(gyrados);
+})
 
-function createPokemon2(idnum) {
-  $.ajax({url:"https://fizal.me/pokeapi/api/" + idnum + ".json",
-    success: function(response){
-      pokeSprite2.style.backgroundImage = "url(" + response.sprites.front_default; + ")";
-      pokeIDNum2.innerText = "ID: " + response.id;
-      pokeName2.innerText = "Name: " + response.name.charAt(0).toUpperCase() + response.name.slice(1);
-      pokeHP2.innerText = "HP: " + response.stats[5].base_stat;
-      pokeAttack2.innerText = "Attack: " + response.stats[4].base_stat;
-      pokeDefense2.innerText = "Defense: " + response.stats[3].base_stat;
+iPoke2.addEventListener('click', function() {
+  displayPokemon(lapras);
+})
 
-      var abil = "";
-
-      for(let i = 0; i < response.abilities.length; i++) {
-        if(i == response.abilities.length-1) {
-          abil += (response.abilities[i].ability.name.charAt(0).toUpperCase() + response.abilities[i].ability.name.slice(1) + ".")
-        }
-        else {
-          abil += (response.abilities[i].ability.name.charAt(0).toUpperCase() + response.abilities[i].ability.name.slice(1) + ", ");
-        }
-      }
-
-      pokeAbilities2.innerText = "Abilities: " + abil;
-    }
-  })
-}
-
-function createPokemon3(idnum) {
-  $.ajax({url:"https://fizal.me/pokeapi/api/" + idnum + ".json",
-    success: function(response){
-      pokeSprite3.style.backgroundImage = "url(" + response.sprites.front_default; + ")";
-      pokeIDNum3.innerText = "ID: " + response.id;
-      pokeName3.innerText = "Name: " + response.name.charAt(0).toUpperCase() + response.name.slice(1);
-      pokeHP3.innerText = "HP: " + response.stats[5].base_stat;
-      pokeAttack3.innerText = "Attack: " + response.stats[4].base_stat;
-      pokeDefense3.innerText = "Defense: " + response.stats[3].base_stat;
-
-      var abil = "";
-
-      for(let i = 0; i < response.abilities.length; i++) {
-        if(i == response.abilities.length-1) {
-          abil += (response.abilities[i].ability.name.charAt(0).toUpperCase() + response.abilities[i].ability.name.slice(1) + ".")
-        }
-        else {
-          abil += (response.abilities[i].ability.name.charAt(0).toUpperCase() + response.abilities[i].ability.name.slice(1) + ", ");
-        }
-      }
-
-      pokeAbilities3.innerText = "Abilities: " + abil;
-    }
-  })
-}
-
-window.addEventListener('load', function() {
-  (createPokemon1(Math.floor(Math.random() * 807)));
-});
-
-window.addEventListener('load', function() {
-  (createPokemon2(Math.floor(Math.random() * 807)));
-});
-
-window.addEventListener('load', function() {
-  (createPokemon3(Math.floor(Math.random() * 807)));
-});
+iPoke3.addEventListener('click', function() {
+  displayPokemon(dragonite);
+})

@@ -101,7 +101,6 @@ body {
   justify-content: center;
   grid-column-start: 1;
   grid-column-end: 4;
-  border: 1px solid green;
 }
 
 #gymtitle {
@@ -110,14 +109,9 @@ body {
 }
 
 /* Row 2: Pokemon Sprite + Pokemon Information/Statistics */
-.pokemoninfosec {
-  border: 1px solid pink;
-}
-
 .pokesprite {
-  height: 250px;
-  width: 250px;
-  border: 1px solid purple;
+  height: 300px;
+  width: 300px;
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -130,23 +124,27 @@ body {
   opacity: 0;
 }
 
-.pokemoninfosec div {
-  border: 1px solid red;
-}
-
 #midcolumn {
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+#pokesprite1 {
+  margin-top: 12vh;
 }
 
 .pokemoninfo {
-  margin-top: 15vh;
-  margin-left: 5vw;
+  margin-top: 10vh;
+  margin-left: 3vw;
 }
 
 .pokeinfo {
-  margin: 5px 0;
+  margin: 8px 0;
+}
+
+/* Row 3: Trainer and their Pokemon */
+.trainersec {
+  border: 1px solid pink;
 }
 
 .trainername {

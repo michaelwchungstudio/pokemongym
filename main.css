@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* Misc. fonts added */
 @font-face {
     font-family: "BebasNeue";
     src: url("fonts/bebasneue.otf");
@@ -72,6 +73,7 @@ body {
   font-weight: 300;
 }
 
+/* Background Image Wrapper */
 .bgwrapper {
   height: 100vh;
   width: 100vw;
@@ -83,10 +85,23 @@ body {
   background-image: url("https://orig01.deviantart.net/ada4/f/2012/030/7/f/battle_bases_01bg_hd_by_xalien95-d4o49yb.png")
 }
 
+/* Grid Wrapper for page elements */
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 0.2fr 0.65fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Row 1: Header */
 .gymnamesec {
   display: flex;
   align-items: center;
   justify-content: center;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  border: 1px solid green;
 }
 
 #gymtitle {
@@ -94,36 +109,44 @@ body {
   color: pink;
 }
 
-.wrapper {
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-rows: 0.2fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+/* Row 2: Pokemon Sprite + Pokemon Information/Statistics */
+.pokemoninfosec {
+  border: 1px solid pink;
 }
 
-.gymnamesec {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  border: 1px solid green;
-}
-
-.trainersec {
-  border: 1px solid gray;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.column div {
+.pokesprite {
+  height: 250px;
+  width: 250px;
   border: 1px solid purple;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.leftcolumn {
+.pokename {
+  font-weight: normal;
+}
+
+.blank {
+  opacity: 0;
+}
+
+.pokemoninfosec div {
+  border: 1px solid red;
+}
+
+#midcolumn {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.pokemoninfo {
+  margin-top: 15vh;
+  margin-left: 5vw;
+}
+
+.pokeinfo {
+  margin: 5px 0;
 }
 
 .trainername {
@@ -145,29 +168,4 @@ body {
   align-items: center;
   border: 1px solid blue;
   cursor: pointer;
-}
-
-.pokesprite {
-  height: 250px;
-  width: 250px;
-  border: 1px solid purple;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.pokename {
-  font-weight: normal;
-}
-
-.pokemoninfosec {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid pink;
-}
-
-.pokemoninfosec div {
-  border: 1px solid red;
 }

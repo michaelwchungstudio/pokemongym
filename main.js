@@ -38,6 +38,7 @@ class Pokemon{
 	newCard(ajaxNumber){
 	var that = this
 		$.ajax({url:"https://fizal.me/pokeapi/api/"+ajaxNumber+".json",
+      async: false,
 			success: function (response) {
 				that.getName(response)
 			}
@@ -86,12 +87,12 @@ var flareon = new Pokemon(136);
 // CREATE POKEMON FUNCTION FOR EACH TRAINER => CHANGES THAT TRAINER'S SECTION OF THE HTML PAGE
 function displayPokemon(pokeObj) {
     pokeSprite1.style.backgroundImage = "url(" + pokeObj.image + ")";
-    pokeIDNum1.innerText = "ID: " + pokeObj.id;
-    pokeName1.innerText = "Name: " + pokeObj.name.charAt(0).toUpperCase() + pokeObj.name.slice(1);
-    pokeHP1.innerText = "HP: " + pokeObj.hp
-    pokeAttack1.innerText = "Attack: " + pokeObj.attack
-    pokeDefense1.innerText = "Defense: " + pokeObj.defense
-    pokeAbilities1.innerText = "Abilities: " + pokeObj.abilities;
+    pokeIDNum1.innerText = "ID : " + pokeObj.id;
+    pokeName1.innerText = "Name : " + pokeObj.name.charAt(0).toUpperCase() + pokeObj.name.slice(1);
+    pokeHP1.innerText = "HP : " + pokeObj.hp
+    pokeAttack1.innerText = "Attack : " + pokeObj.attack
+    pokeDefense1.innerText = "Defense : " + pokeObj.defense
+    pokeAbilities1.innerText = "Abilities : " + pokeObj.abilities;
 }
 
 // MICHAEL EVENT LISTENERS
@@ -130,5 +131,10 @@ iPoke2.addEventListener('click', function() {
 })
 
 iPoke3.addEventListener('click', function() {
+  displayPokemon(dragonite);
+})
+
+// ON LOAD
+window.addEventListener('load', function() {
   displayPokemon(dragonite);
 })

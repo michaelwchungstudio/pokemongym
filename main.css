@@ -105,8 +105,8 @@ body {
 
 #gymtitle {
   font-family: "PokemonSolid";
-  font-size: 40px;
-  letter-spacing: 5px;
+  font-size: 46px;
+  letter-spacing: 7px;
 }
 
 /* Row 2: Pokemon Sprite + Pokemon Information/Statistics */
@@ -158,6 +158,21 @@ body {
   margin-left: 60px;
   margin-top: 10px;
 }
+
+#ts1 {
+  background-image: url("sprites/trainersprite2.gif");
+  margin-left: 105px;
+}
+
+#ts2 {
+  background-image: url("sprites/trainersprite1.gif");
+}
+
+#ts3 {
+  background-image: url("sprites/trainersprite3.gif");
+  margin-left: 100px;
+}
+
 
 .pokeball {
   background-image: url("sprites/pokeball.png");

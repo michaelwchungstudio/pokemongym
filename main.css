@@ -130,8 +130,18 @@ body {
   justify-content: center;
 }
 
+.column div {
+/*  border: 1px solid purple;*/
+}
+
+.exploison{
+  height:185px;
+  width: 185px;
+}
+
 #pokesprite1 {
   margin-top: 12vh;
+
 }
 
 .pokemoninfo {
@@ -196,6 +206,13 @@ body {
 .trainername {
   display: flex;
   justify-content: center;
+
+/*  border: 1px solid pink;*/
+}
+
+.pokemoninfosec div {
+ /* border: 1px solid red;*/
+
   align-items: center;
   font-size: 20px;
   font-weight: bold;

@@ -6,6 +6,7 @@ var pokeHP1 = document.getElementById('pokehp1');
 var pokeAttack1 = document.getElementById('pokeattack1');
 var pokeDefense1 = document.getElementById('pokedefense1');
 var pokeAbilities1 = document.getElementById('pokeabilities1');
+var exploison = document.getElementsByClassName('exploison')
 
 var mPoke1 = document.getElementById('mpoke1');
 var mPoke2 = document.getElementById('mpoke2');
@@ -83,6 +84,31 @@ var vaporeon = new Pokemon(134);
 var jolteon = new Pokemon(135);
 var flareon = new Pokemon(136);
 
+function exploisnMike(){
+      exploison[0].style.backgroundImage= "url('spark/spark1.gif')"
+      exploison[0].style.backgroundRepeat = "no-repeat"
+      exploison[0].style.backgroundSize = "contain"
+      exploison[1].style.backgroundImage= "url('spark/spark1.gif')"
+      exploison[1].style.backgroundRepeat = "no-repeat"
+      exploison[1].style.backgroundSize = "contain"
+}
+function exploisnTanjim(){
+      exploison[0].style.backgroundImage= "url('spark/spark2.gif')"
+      exploison[0].style.backgroundRepeat = "no-repeat"
+      exploison[0].style.backgroundSize = "contain"
+      exploison[1].style.backgroundImage= "url('spark/spark2.gif')"
+      exploison[1].style.backgroundRepeat = "no-repeat"
+      exploison[1].style.backgroundSize = "contain"
+  
+}function exploisnIan(){
+      exploison[0].style.backgroundImage= "url('spark/spark5.gif')"
+      exploison[0].style.backgroundRepeat = "no-repeat"
+      exploison[0].style.backgroundSize = "contain"
+      exploison[1].style.backgroundImage= "url('spark/spark5.gif')"
+      exploison[1].style.backgroundRepeat = "no-repeat"
+      exploison[1].style.backgroundSize = "contain"
+}
+
 // CREATE POKEMON FUNCTION FOR EACH TRAINER => CHANGES THAT TRAINER'S SECTION OF THE HTML PAGE
 function displayPokemon(pokeObj) {
     pokeSprite1.style.backgroundImage = "url(" + pokeObj.image + ")";
@@ -97,38 +123,47 @@ function displayPokemon(pokeObj) {
 // MICHAEL EVENT LISTENERS
 mPoke1.addEventListener('click', function() {
   displayPokemon(vaporeon);
+  exploisnMike()
 })
 
 mPoke2.addEventListener('click', function() {
   displayPokemon(jolteon);
+  exploisnMike()
 })
 
 mPoke3.addEventListener('click', function() {
   displayPokemon(flareon);
+  exploisnMike()
 })
 
 // TANJIM EVENT LISTENERS
 tPoke1.addEventListener('click', function() {
   displayPokemon(pichu);
+  exploisnTanjim()
 })
 
 tPoke2.addEventListener('click', function() {
   displayPokemon(chikorita);
+  exploisnTanjim()
 })
 
 tPoke3.addEventListener('click', function() {
   displayPokemon(bellossom);
+  exploisnTanjim()
 })
 
 // IAN EVENT LISTENERS
 iPoke1.addEventListener('click', function() {
   displayPokemon(gyrados);
+  exploisnIan()
 })
 
 iPoke2.addEventListener('click', function() {
   displayPokemon(lapras);
+  exploisnIan()
 })
 
 iPoke3.addEventListener('click', function() {
   displayPokemon(dragonite);
+  exploisnIan()
 })

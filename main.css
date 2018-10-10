@@ -117,7 +117,11 @@ body {
 }
 
 .column div {
-  border: 1px solid purple;
+/*  border: 1px solid purple;*/
+}
+.exploison{
+  height:185px;
+  width: 185px;
 }
 
 .leftcolumn {
@@ -165,9 +169,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid pink;
+/*  border: 1px solid pink;*/
 }
 
 .pokemoninfosec div {
-  border: 1px solid red;
+ /* border: 1px solid red;*/
 }

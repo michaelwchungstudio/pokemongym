@@ -93,6 +93,7 @@ function exploisnMike(){
       exploison[1].style.backgroundRepeat = "no-repeat"
       exploison[1].style.backgroundSize = "contain"
 }
+
 function exploisnTanjim(){
       exploison[0].style.backgroundImage= "url('spark/spark2.gif')"
       exploison[0].style.backgroundRepeat = "no-repeat"
@@ -100,8 +101,9 @@ function exploisnTanjim(){
       exploison[1].style.backgroundImage= "url('spark/spark2.gif')"
       exploison[1].style.backgroundRepeat = "no-repeat"
       exploison[1].style.backgroundSize = "contain"
-  
-}function exploisnIan(){
+}
+
+function exploisnIan(){
       exploison[0].style.backgroundImage= "url('spark/spark5.gif')"
       exploison[0].style.backgroundRepeat = "no-repeat"
       exploison[0].style.backgroundSize = "contain"
